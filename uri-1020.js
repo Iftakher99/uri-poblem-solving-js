@@ -1,14 +1,13 @@
 const input = require("fs").readFileSync("stdin", "utf-8");
-const age = parseInt(input.split(" "));
+let ageInDays = parseInt(input);
+let years, months;
 
-const years = parseInt(age / 365);
+years = parseInt(ageInDays / 365);
+ageInDays = ageInDays % 365;
 
-let x = parseInt(age % 365);
-
-const months = parseInt(x / 30);
-x = x % 30;
-const days = x;
-
-console.log(`${years} ano(s) 
+months = parseInt(ageInDays / 30);
+ageInDays = ageInDays % 30;
+const result = `${years} ano(s)
 ${months} mes(es)
-${days} dia(s)`);
+${ageInDays} dia(s)`;
+console.log(result);
